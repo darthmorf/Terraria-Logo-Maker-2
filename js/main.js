@@ -4,6 +4,8 @@ var ctx = canvas.getContext("2d");
 canvas.width = 0;
 canvas.height = 95;
 
+var logoTextInput = document.getElementById('logoTextInput');
+
 var imageDir = "./assets/chars";
 var theme;
 
@@ -11,6 +13,7 @@ var treeImage;
 var startImage;
 var endImage;
 var errImage;
+
 
 function initTheme (newTheme){
     theme = newTheme;
@@ -54,4 +57,8 @@ function stringToImage (text, charImages=[]) {
         stringToImage(text.slice(1, text.length), charImages);
     }    
     img.src = imagePath;
+}
+
+logoTextInput.onkeyup = function () {
+    stringToImage(logoTextInput.value);
 }
