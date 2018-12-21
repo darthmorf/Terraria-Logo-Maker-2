@@ -7,32 +7,33 @@ canvas.height = 95;
 var logoTextInput = document.getElementById('logoTextInput');
 var themeSelector = document.getElementById('themeSelect');
 var treeCheckbox = document.getElementById('treeCheckbox');
+var downloadButton = document.getElementById('downloadBtn');
 
 var imageDir = "./assets/chars";
 var theme;
 
-var treeImage;
-var startImage;
-var endImage;
-var errImage;
+var treeImg;
+var startImg;
+var endImg;
+var errImg;
 
 
 function initTheme (newTheme){
     theme = newTheme;
-    treeImage = new Image();
-    treeImage.src = `${imageDir}/${theme}/tree.png`;
-    startImage = new Image();
-    startImage.src = `${imageDir}/${theme}/start.png`;
-    endImage = new Image();
-    endImage.src = `${imageDir}/${theme}/end.png`;
+    treeImg = new Image();
+    treeImg.src = `${imageDir}/${theme}/tree.png`;
+    startImg = new Image();
+    startImg.src = `${imageDir}/${theme}/start.png`;
+    endImg = new Image();
+    endImg.src = `${imageDir}/${theme}/end.png`;
 }
 
 function displayImage (images) {
     if (treeCheckbox.checked){
-        images = [treeImage, startImage].concat(images, [endImage]);
+        images = [treeImg, startImg].concat(images, [endImg]);
     }
     else {
-        images = [startImage].concat(images, [endImage])
+        images = [startImg].concat(images, [endImg])
     }    
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
@@ -78,3 +79,8 @@ themeSelector.onchange = function () {
 treeCheckbox.onchange = function () {
     stringToImage(logoTextInput.value);
 }
+
+downloadButton.addEventListener('click', function (e) {
+    var dataURL = canvas.toDataURL('image/png');
+    downloadButton.href = dataURL;
+});
