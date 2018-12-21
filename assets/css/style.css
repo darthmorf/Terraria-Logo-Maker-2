@@ -1,0 +1,49 @@
+@font-face {
+    font-family: Andy Mt;
+    src: url("../fonts/andy-mt-bold.ttf");
+  }
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-image: url("../img/bg2.png");
+    font-family: Andy Mt;
+    color: white;
+    font-size: 24px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.container {
+    background-color: rgba(56, 58, 134, 0.7);
+    padding: 10px;
+    border-radius: 15px;
+    border-color: rgba(28, 27, 60, 0.7);
+    border-style: solid;
+    display: inline-block;
+    min-width: 50%;
+}
+
+.textInput {
+    min-width: 50%;
+    -webkit-text-stroke-width: 0px;
+}
+
+.dropdown {
+    -webkit-text-stroke-width: 0px;
+}
+
+.downloadBtn {
+    background-color: rgba(56, 58, 134, 1);
+    padding: 5px;
+    border-radius: 10px;
+    border-color: rgba(28, 27, 60, 1);
+    border-style: solid;
+    display: inline-block;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

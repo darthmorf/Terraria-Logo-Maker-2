@@ -7,19 +7,21 @@
   <meta name="description" content="Terraria Themed Logo Generator">
   <meta name="author" content="darthmorf">
 
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
 <body onload="initTheme('overworld');">
-    <canvas id="canvas"></canvas>
-    <br>
-    <input type="checkbox" id="treeCheckbox" checked> Show Tree?
-    <br>
-    <input type="text" id="logoTextInput">
+  <img src="assets/img/logo.png"><br>
 
+  <div class="container">    
+    Text to generate: <br>
+    <input type="text" id="logoTextInput" class="textInput"><br>
 
-    <select id="themeSelect">
+    <input type="checkbox" id="treeCheckbox" checked> Show Tree? <br><br>
+
+    Theme: <br>
+    <select id="themeSelect" class="dropdown">
       <option value="overworld-extended">Overworld</option>
       <option value="desert">Desert</option>
       <option value="jungle">Jungle</option>
@@ -27,10 +29,15 @@
       <option value="ocean">Ocean</option>
       <option value="snow">Snow</option>
       <option value="underworld-extended">Underworld</option>
-    </select>
+    </select><br><br>
 
-    <a href="#" id="downloadBtn" download="custom-terraria-logo.png">Download</a>
+    <canvas id="canvas"></canvas><br>
+    
+    <div class="downloadBtn">
+      <a href="#" id="downloadBtn" download="custom-terraria-logo.png">Download</a>
+    </div>
 
-    <script src="js/main.js"></script>
+  </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
