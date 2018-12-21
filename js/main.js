@@ -22,8 +22,10 @@ function initTheme (newTheme){
     theme = newTheme;
     treeImg = new Image();
     treeImg.src = `${imageDir}/${theme}/tree.png`;
+
     startImg = new Image();
     startImg.src = `${imageDir}/${theme}/start.png`;
+
     endImg = new Image();
     endImg.src = `${imageDir}/${theme}/end.png`;
 }
@@ -49,7 +51,7 @@ function displayImage (images) {
     for (var i = 0; i < images.length; i++){
         ctx.drawImage(images[i], x, y);
         x += images[i].width;
-    }
+    }    
 }
 
 function stringToImage (text, charImages=[]) {
@@ -67,17 +69,25 @@ function stringToImage (text, charImages=[]) {
     img.src = imagePath;
 }
 
+function handleInput (textInput) {
+    var textToPass = textInput;
+    if (textToPass == ""){
+        textToPass = "Terraria";
+    }
+    stringToImage(textToPass);
+}
+
 logoTextInput.onkeyup = function () {
-    stringToImage(logoTextInput.value);
+    handleInput(logoTextInput.value);
 }
 
 themeSelector.onchange = function () {
-    initTheme(themeSelector.value);
-    stringToImage(logoTextInput.value);
+    initTheme(themeSelector.value);    
+    handleInput(logoTextInput.value);
 }
 
-treeCheckbox.onchange = function () {
-    stringToImage(logoTextInput.value);
+treeCheckbox.onchange = function () {        
+    handleInput(logoTextInput.value);
 }
 
 downloadButton.addEventListener('click', function (e) {
