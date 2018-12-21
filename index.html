@@ -13,10 +13,21 @@
 
 <body onload="initTheme('overworld');">
     <canvas id="canvas"></canvas>
+    <br>
+    <input type="checkbox" id="treeCheckbox" checked> Show Tree?
+    <br>
+    <input type="text" id="logoTextInput">
 
-    <form>
-      <input type="text" id="logoTextInput">
-    </form>
+
+    <select id="themeSelect">
+      <option value="overworld-extended">Overworld</option>
+      <option value="desert">Desert</option>
+      <option value="jungle">Jungle</option>
+      <option value="mushroom">Mushroom</option>
+      <option value="ocean">Ocean</option>
+      <option value="snow">Snow</option>
+      <option value="underworld-extended">Underworld</option>
+    </select>
 
     <script src="js/main.js"></script>
 </body>

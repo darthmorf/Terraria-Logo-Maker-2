@@ -5,6 +5,8 @@ canvas.width = 0;
 canvas.height = 95;
 
 var logoTextInput = document.getElementById('logoTextInput');
+var themeSelector = document.getElementById('themeSelect');
+var treeCheckbox = document.getElementById('treeCheckbox');
 
 var imageDir = "./assets/chars";
 var theme;
@@ -26,7 +28,12 @@ function initTheme (newTheme){
 }
 
 function displayImage (images) {
-    images = [treeImage, startImage].concat(images, [endImage])
+    if (treeCheckbox.checked){
+        images = [treeImage, startImage].concat(images, [endImage]);
+    }
+    else {
+        images = [startImage].concat(images, [endImage])
+    }    
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
 
@@ -60,5 +67,14 @@ function stringToImage (text, charImages=[]) {
 }
 
 logoTextInput.onkeyup = function () {
+    stringToImage(logoTextInput.value);
+}
+
+themeSelector.onchange = function () {
+    initTheme(themeSelector.value);
+    stringToImage(logoTextInput.value);
+}
+
+treeCheckbox.onchange = function () {
     stringToImage(logoTextInput.value);
 }
