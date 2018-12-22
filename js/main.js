@@ -13,13 +13,28 @@ var infoDiv = document.getElementById('infoDiv');
 var imageDir = "./assets/chars";
 var theme;
 
+var visitCount = localStorage.getItem('pageLoadCounter');
+
 var treeImg;
 var startImg;
 var endImg;
 var errImg;
 
 
-function initTheme (newTheme){
+function init () {    
+    if (visitCount === null) {
+        visitCount = 0;
+    }
+    visitCount++;      
+    localStorage.setItem("pageLoadCounter", visitCount);
+
+    console.log("You are visitor number: " + visitCount);
+
+    loadTheme('overworld-extended');
+    stringToImage(logoTextInput.value);
+}
+
+function loadTheme (newTheme){
     theme = newTheme;
     treeImg = new Image();
     treeImg.src = `${imageDir}/${theme}/tree.png`;
@@ -37,7 +52,7 @@ function initTheme (newTheme){
     document.getElementById(`info-ocean`).style="display:none";
     document.getElementById(`info-snow`).style="display:none";
     document.getElementById(`info-underworld-extended`).style="display:none";
-    
+
     document.getElementById(`info-${theme}`).style="display:auto";
 }
 
@@ -97,7 +112,7 @@ logoTextInput.onkeyup = function () {
 }
 
 themeSelector.onchange = function () {
-    initTheme(themeSelector.value);    
+    loadTheme(themeSelector.value);    
     handleInput(logoTextInput.value);
 }
 
