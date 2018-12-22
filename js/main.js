@@ -8,6 +8,7 @@ var logoTextInput = document.getElementById('logoTextInput');
 var themeSelector = document.getElementById('themeSelect');
 var treeCheckbox = document.getElementById('treeCheckbox');
 var downloadButton = document.getElementById('downloadBtn');
+var infoDiv = document.getElementById('infoDiv');
 
 var imageDir = "./assets/chars";
 var theme;
@@ -28,6 +29,16 @@ function initTheme (newTheme){
 
     endImg = new Image();
     endImg.src = `${imageDir}/${theme}/end.png`;
+
+    document.getElementById(`info-overworld-extended`).style="display:none";
+    document.getElementById(`info-desert`).style="display:none";
+    document.getElementById(`info-jungle`).style="display:none";
+    document.getElementById(`info-mushroom`).style="display:none";
+    document.getElementById(`info-ocean`).style="display:none";
+    document.getElementById(`info-snow`).style="display:none";
+    document.getElementById(`info-underworld-extended`).style="display:none";
+    
+    document.getElementById(`info-${theme}`).style="display:auto";
 }
 
 function displayImage (images) {

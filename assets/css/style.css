@@ -43,7 +43,15 @@ body {
     display: inline-block;
 }
 
-a {
+.downloadBtnLabel, .downloadBtnLabel:visited {
     color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+a, a:visited {
+    color: #0000EE;
     text-decoration: none;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
