@@ -41,14 +41,14 @@ function displayImage (images) {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
 
     var imageWidth = 0; 
-    for (var i = 0; i < images.length; i++){
+    for (var i = 0; i < images.length; i++) {
         imageWidth += images[i].width;
     }
     canvas.width = imageWidth;
 
     var x = 0;
     var y = 0;
-    for (var i = 0; i < images.length; i++){
+    for (var i = 0; i < images.length; i++) {
         ctx.drawImage(images[i], x, y);
         x += images[i].width;
     }    
@@ -62,16 +62,20 @@ function stringToImage (text, charImages=[]) {
     var asciiVal = text[0].charCodeAt(0);    
     var imagePath = `${imageDir}/${theme}/${asciiVal}.png`;
     var img = new Image();
+    img.onerror = function () {
+        img.onload = null;
+        stringToImage(text.slice(1, text.length), charImages);
+    }
     img.onload = function () {
         charImages.push(img);
         stringToImage(text.slice(1, text.length), charImages);
-    }    
+    }   
     img.src = imagePath;
 }
 
 function handleInput (textInput) {
     var textToPass = textInput;
-    if (textToPass == ""){
+    if (textToPass == "") {
         textToPass = "Terraria";
     }
     stringToImage(textToPass);
@@ -90,7 +94,7 @@ treeCheckbox.onchange = function () {
     handleInput(logoTextInput.value);
 }
 
-downloadButton.addEventListener('click', function (e) {
+downloadButton.addEventListener('click', function () {
     var dataURL = canvas.toDataURL('image/png');
     downloadButton.href = dataURL;
 });
