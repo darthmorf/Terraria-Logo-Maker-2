@@ -4,15 +4,16 @@
   }
 
 body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-    background-image: url("../img/bg2.png");
     font-family: Andy Mt;
     color: white;
     font-size: 24px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+    background: url("../img/bg2.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .container {
