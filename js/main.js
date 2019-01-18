@@ -22,14 +22,6 @@ var errImg;
 
 
 function init () {    
-    if (visitCount === null) {
-        visitCount = 0;
-    }
-    visitCount++;      
-    localStorage.setItem("pageLoadCounter", visitCount);
-
-    console.log("You are visitor number: " + visitCount);
-
     loadTheme('overworld-extended');
     stringToImage(logoTextInput.value);
 }
